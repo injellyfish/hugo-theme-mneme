@@ -1,4 +1,4 @@
-baseurl: "" #网站地址
+baseurl: "https://injellyfish.github.io/mneme-demo" #网站地址
 languageCode: zh-cn
 title: Mneme  #网站标题
 theme: hugo-theme-mneme
@@ -23,7 +23,7 @@ menu:  #首页菜单
       url: "/tags/"
       weight: 3
     - name: "订阅"
-      url: "/index.xml/"
+      url: "/index.xml"
       weight: 4
 
 params:
