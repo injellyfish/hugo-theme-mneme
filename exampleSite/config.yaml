@@ -1,0 +1,36 @@
+baseurl: "" #网站地址
+languageCode: zh-cn
+title: Mneme  #网站标题
+theme: hugo-theme-mneme
+preserveTaxonomyNames: true
+footnotereturnlinkcontents: ↩
+
+permalinks:
+  /: /:slug/
+
+rssLimit: 5  #限制RSS输出文章数
+enableRobotsTXT: true
+
+menu:  #首页菜单
+  main:
+    - name: "书架"
+      url: "/"
+      weight: 1
+    - name: "分类"
+      url: "/categories/"
+      weight: 2
+    - name: "标签"
+      url: "/tags/"
+      weight: 3
+    - name: "订阅"
+      url: "/index.xml/"
+      weight: 4
+
+params:
+  description: "用于中文小说写作的 Hugo 主题"  #网站描述
+  footer: "Theme [Mneme](https://github.com/injellyfish/hugo-theme-mneme)丨Powered by [Hugo](https://gohugo.io/)."  #网站页脚
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

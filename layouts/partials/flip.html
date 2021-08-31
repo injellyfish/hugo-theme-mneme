@@ -1,0 +1,38 @@
+<div class="flip">
+  <div style="text-align: left;">
+    «&nbsp;
+    {{ if .PrevInSection }}
+      <a
+        href="{{ .PrevInSection.Permalink | relURL }}"
+        title="{{ .PrevInSection.Title }}"
+      >
+      上一章
+      </a>
+      {{ else }}
+      <span style="color: silver;">上一章</span>
+    {{ end }}
+      </div>
+  <div class="center">
+    {{ if (or ( .PrevInSection) ( .NextInSection)) }}
+      {{ $thisSection := .Site.GetPage "section" .Section }}
+      {{ with $thisSection }}
+      -&nbsp;<a href="{{ .Permalink }}">目录</a>&nbsp;-
+      {{ end }}
+      {{ else }}
+    {{ end }}
+  </div>
+  <div style="text-align: right;">
+    {{ if .NextInSection }}
+    <a
+      href="{{ .NextInSection.Permalink | relURL }}"
+      title="{{ .NextInSection.Title }}"
+    >
+      下一章
+    </a>
+    {{ else }}
+      <span style="color: silver;">下一章</span>
+    {{ end }}
+    &nbsp;»
+    </div>
+</div>
+  

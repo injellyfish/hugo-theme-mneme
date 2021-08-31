@@ -1,0 +1,28 @@
+{{ partial "header.html" . }}
+
+<div class="sec">
+    <div style="text-align: left;">
+        {{ partial "svgs/archive.svg" }}
+        {{ range (.GetTerms "categories") }}
+        <a href="{{ .Permalink }}" class="tem">{{ .LinkTitle }}</a>
+        {{ end }}<br>
+        {{ partial "svgs/tags.svg" }}
+        {{ range (.GetTerms "tags") }}
+        <a href="{{ .Permalink }}" class="tem">{{ .LinkTitle }}</a>
+        {{ end }}<br>
+        {{ if .Params.warning }}{{ partial "svgs/exclamation-triangle.svg" }}<span class="warn">{{ .Params.warning}}</span>{{ end }}<br>
+        {{ range last 1 .Pages.ByDate }}{{ partial "svgs/feather.svg" }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>&nbsp;<span class="info">{{ .Date.Format "2006-01-02" }}</span>{{ end }}<br>
+        {{ partial "svgs/rss.svg" }}<a href="{{ .Permalink }}/index.xml">订阅</a>
+    </div>
+</div>
+{{ if .Content}}<center>▼</center>{{ .Content }}{{ end }}
+<hr>
+<h3 class="center">目录</h3>
+{{ range .Pages.ByDate }}
+    <div class="block">
+        <span style="font-size: 20px;"><a href="{{ .RelPermalink }}">{{ .Title }}</a></span><span class="info">&emsp;{{ .Date.Format "2006-01-02" }}</span>
+        <br><span style="color: grey;">{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | truncate 50 }}{{ end }}</span>
+    </div>
+{{ end }}
+
+{{ partial "footer.html" . }}

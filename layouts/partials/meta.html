@@ -1,0 +1,14 @@
+{{ if not .IsHome }}
+<h1>{{ .Title }}</h1>
+{{ with .Params.subtitle }}<h1><span class="subtitle">{{ . }}</span></h1>{{ end }}
+<p class="center">
+    {{ if .IsPage }}
+        {{ $thisSection := .Site.GetPage "section" .Section }}
+        {{ with $thisSection }}
+        <a href="{{ .Permalink }}">{{ .CurrentSection.Title }}</a>
+        {{ end }}
+    {{ end }}
+    {{ if .Params.date }}  /  {{ .Date.Format "2006-01-02" }}{{ end }}
+</p>
+<hr>
+{{ end }}

@@ -1,0 +1,13 @@
+{{ partial "header.html" . }}
+
+<div class="terms center">
+  {{ range $key, $value := .Data.Terms }}
+  <span class="tagstyle">
+    <a href="{{ (print "/" $.Data.Plural "/" $key | urlize) | relURL }}">
+      #&thinsp;{{ $key }}
+    </a>
+  </span>
+  {{ end }}
+</div>
+
+{{ partial "footer.html" . }}
