@@ -1,59 +1,62 @@
 {{ partial "header.html" . }}
-{{ .Content }}
 
 {{ if .IsHome }}
-  {{ range .Site.Sections }}
-  <div class="homeblock">
-    <div class="tit"><a href="{{ .RelPermalink }}">{{ .Title  }}</a></div> 
-    <div class="info">   
-      <span class="tagstyle">{{ partial "svgs/archive.svg" }}
-        {{ range (.GetTerms "categories") }}
-          <a href="{{ .Permalink }}" class="tem">{{ .LinkTitle }}</a>
-        {{ end }}
-      </span>
-      <span class="tagstyle">{{ partial "svgs/tags.svg" }}
-        {{ range (.GetTerms "tags") }}
-          <a href="{{ .Permalink }}" class="tem">{{ .LinkTitle }}</a>
-        {{ end }}
-      </span>
-      <span class="tagstyle">
-        {{ range last 1 .Pages.ByDate}}
-        {{ partial "svgs/feather.svg" }}<a href="{{ .RelPermalink }}">{{ .Title  }}</a>&ensp;{{ .Date.Format "2006-01-02" }}
-        {{ end }}
-      </span>
-    </div>
+{{ range .Site.Sections }}
+<div class="block">
+  <div class="tit"><a href="{{ .RelPermalink }}">{{ .Title  }}</a></div> 
+  <div class="info">   
+    <span class="tagstyle">
+      {{ partial "svgs/archive.svg" }}
+      {{ range (.GetTerms "categories") }}
+      <a href="{{ .Permalink }}" class="tem">{{ .LinkTitle }}</a>
+      {{ end }}
+    </span>
+    <span class="tagstyle">
+      {{ partial "svgs/tags.svg" }}
+      {{ range (.GetTerms "tags") }}
+      <a href="{{ .Permalink }}" class="tem">{{ .LinkTitle }}</a>
+      {{ end }}
+    </span>
+    <span class="tagstyle">
+      {{ range last 1 .Pages.ByDate}}
+      {{ partial "svgs/bookmark.svg" }}
+      <a href="{{ .RelPermalink }}">{{ .Title  }}</a>&ensp;{{ .Date.Format "2006-01-02" }}
+      {{ end }}
+    </span>
+  </div>
+  {{ if .Params.warning }}
+  <div class="warn">{{ .Params.warning}}</div>
+  {{ end }}
+  {{ if .Description }}{{ .Description }}{{ end }}
+</div>
+{{ end }}  
+{{ else }}
+{{ $.Scratch.Set "pages" .Pages }}
+{{ range (where ($.Scratch.Get "pages") "Section" "!=" "") }}
+<div class="center block">
+  <a href="{{ relURL "/" }}{{ .Section }}">{{ .Title  }}</a>
+  <div class="info">
+    <span class="tagstyle">
+      {{ partial "svgs/archive.svg" }}
+      {{ range (.GetTerms "categories") }}
+      <a href="{{ .Permalink }}" class="tem">{{ .LinkTitle }}</a>
+      {{ end }}
+    </span>
+    <span class="tagstyle">
+      {{ partial "svgs/tags.svg" }}
+      {{ range (.GetTerms "tags") }}
+      <a href="{{ .Permalink }}" class="tem">{{ .LinkTitle }}</a>
+      {{ end }}
+    </span>
+  </div>
+  <div class="info">
     {{ if .Params.warning }}
     <div class="warn">{{ .Params.warning}}</div>
     {{ end }}
     {{ if .Description }}{{ .Description }}{{ end }}
   </div>
-  {{ end }}  
-{{ else }}
-{{ $.Scratch.Set "pages" .Pages }}
-  {{ range (where ($.Scratch.Get "pages") "Section" "!=" "") }}
-    <div class="center block">
-      <a href="{{ relURL "/" }}{{ .Section }}">{{ .Title  }}</a>
-      <div class="info">
-        <span class="tagstyle">{{ partial "svgs/archive.svg" }}
-          {{ range (.GetTerms "categories") }}
-            <a href="{{ .Permalink }}" class="tem">{{ .LinkTitle }}</a>
-          {{ end }}
-        </span>
-        <span class="tagstyle">{{ partial "svgs/tags.svg" }}
-          {{ range (.GetTerms "tags") }}
-            <a href="{{ .Permalink }}" class="tem">{{ .LinkTitle }}</a>
-          {{ end }}
-        </span>
-      </div>
-      <div class="info">
-        {{ if .Params.warning }}
-          <div class="warn">{{ .Params.warning}}</div>
-        {{ end }}
-        {{ if .Description }}
-          {{ .Description }}
-        {{ end }}
-      </div>
-    </div>
-  {{ end }}
+</div>
 {{ end }}
+{{ end }}
+
 {{ partial "footer.html" . }}

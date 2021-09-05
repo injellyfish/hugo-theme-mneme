@@ -6,10 +6,14 @@
     <span class="text">Menu</span>
   </label>
   <ul>
-  {{ $currentPage := . }}
-  {{ range (default .Site.Menus.main (index .Site.Menus ($.Scratch.Get "section"))) }}
-  <li{{ if eq .URL $currentPage.RelPermalink }} class="active"{{ end }}><a href="{{ .URL }}">{{ .Name }}</a></li>
-  {{ end }}
-  <li><a style="cursor: pointer;" data-drkmd-toggle>模式</a></li>
+    {{ $currentPage := . }}
+    {{ range (default .Site.Menus.main (index .Site.Menus ($.Scratch.Get "section"))) }}
+    <li{{ if eq .URL $currentPage.RelPermalink }} class="active"{{ end }}><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}
+    <!--li><a style="cursor: pointer;" data-drkmd-toggle>主题</a></li-->
+    <li><a style="cursor: pointer;" id="theme-toggle">
+      <span class="theme-toggle-light none">黑夜</span>
+      <span class="theme-toggle-dark none">白天</span>
+    </a></li>
   </ul>
 </nav>

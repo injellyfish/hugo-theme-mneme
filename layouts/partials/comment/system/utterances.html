@@ -1,0 +1,10 @@
+<script src="https://utteranc.es/client.js" 
+        repo="{{ .Site.Params.comment.utterances.repo }}"
+        issue-term="{{ .Site.Params.comment.utterances.IssueTerm }}"
+        {{ with .Site.Params.comments.utterances.label }}
+        label="{{ . }}"
+        {{ end }}
+        theme = "github-light"
+        crossorigin="anonymous"
+        async>
+</script>

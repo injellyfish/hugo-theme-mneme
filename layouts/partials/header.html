@@ -8,8 +8,8 @@
   <meta property="og:title" content="{{ .Site.Title }}">
   <meta property="og:type" content="website">
   {{ else }}
-  <title>{{ .Title }}{{ with .Params.subtitle }} - {{ . }} {{ end }} - {{ .Site.Title }}</title>
-  <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
+  <title>{{ .Title }}{{ with .Params.subtitle }}丨{{ . }} {{ end }}丨{{ .Site.Title }}</title>
+  <meta property="og:title" content="{{ .Title }}丨{{ .Site.Title }}">
   {{ end }}
   <meta name="twitter:card" content="summary">
 
@@ -49,7 +49,6 @@
   <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
   <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" />
 </head>
-
 {{ $.Scratch.Set "section" (replaceRE "^/([^/]+)/.*" "$1" .RelPermalink) }}
 <body class="{{ if .IsHome }}home{{ else }}{{ $.Scratch.Get "section" }}{{ end }}">
   <header class="masthead">

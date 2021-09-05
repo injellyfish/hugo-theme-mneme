@@ -1,4 +1,4 @@
-baseurl: "https://injellyfish.github.io/mneme-demo" #网站地址
+baseurl: "https://injellyfish.github.io/mneme-demo" #请改为自己的网站地址
 languageCode: zh-cn
 title: Mneme  #网站标题
 theme: hugo-theme-mneme
@@ -29,6 +29,45 @@ menu:  #首页菜单
 params:
   description: "用于中文小说写作的 Hugo 主题"  #网站描述
   footer: "Theme [Mneme](https://github.com/injellyfish/hugo-theme-mneme)丨Powered by [Hugo](https://gohugo.io/)."  #网站页脚
+  
+  comment:
+    enabled: false #如开启评论，设为true；关闭设为false
+    system:    #开启true后选择waline/cusdis/gitalk/utterancs/giscus
+
+    # https://waline.js.org/
+    Waline:
+      serverURL: https://serverURL.vercel.app/
+      emoji: ['https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus', 'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-object']
+      avatar: hide
+      uploadImage: false
+      
+    # https://cusdis.com/
+    Cusdis:
+      DataAppId: 
+
+    # https://github.com/gitalk/gitalk
+    Gitalk:
+      clientID: 
+      clientSecret: 
+      repo: 
+      owner: 
+      admin: 
+
+    # https://utteranc.es/
+    Utterances:
+      repo: 
+      IssueTerm: 
+      label: 
+
+    # https://giscus.app/
+    Giscus:
+      DataRepo: 
+      DataRepoId: 
+      DataCategory: 
+      DataCategoryId: 
+      DataMapping: 
+      DataReactionsEnabled: 1
+      DataEmitMetadata: 0
 
 markup:
   goldmark:

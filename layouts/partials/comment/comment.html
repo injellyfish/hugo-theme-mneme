@@ -1,0 +1,5 @@
+{{ if .Site.Params.comment.enabled }}
+<div class="comments">
+    {{ partial (printf "comment/system/%s" .Site.Params.comment.system) . }}
+</div>
+{{ end }}

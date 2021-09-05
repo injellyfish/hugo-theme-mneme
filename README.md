@@ -19,7 +19,7 @@
 
 ① 在终端执行以下命令：
 
-> 建议“BookName”使用英文或数字
+> 建议“BookName”使用英文或数字，不影响页面标题显示
 
 ```
 hugo new --kind book BookName
@@ -38,7 +38,7 @@ tags:
     - "标签"
 ---
 
-书籍详细内容，会出现在书籍目录上方
+书籍详细内容，会出现在书籍目录上方。可以留空不填。
 
 ```
 
@@ -47,6 +47,8 @@ tags:
 ### 新章节：
 
 ① 在终端执行以下命令：
+
+> 同样，建议“ChapterName”使用英文或数字，不影响页面标题显示
 
 ```
 hugo new BookName/ChapterName.md
@@ -60,6 +62,7 @@ title: "章节标题"
 slug: "链接"
 date: 日期，自动生成
 description: "章节描述，如设置为空则会选取章节前五十字"
+draft: 是否为草稿，默认为true。如发布文章则需设为false
 ---
 ```
 
@@ -69,16 +72,14 @@ description: "章节描述，如设置为空则会选取章节前五十字"
 
 ## 评论
 
-可以把评论系统的代码放置在 `themes/hugo-theme-mneme/layouts/partials/comment.html` 里面。
-
-我所知的评论系统（排名不分先后）：[Disqus](http://disqus.com/)，[Gitalk](https://github.com/gitalk/gitalk)，[Waline](https://waline.js.org/)，[Vssue](https://vssue.js.org/)，[Utterances](https://utteranc.es/)，[Giscus](https://giscus.app/) 和 [Cusdis](https://cusdis.com/)。
+2021-09-05 更新：增加了评论，目前有 [Gitalk](https://github.com/gitalk/gitalk)，[Waline](https://waline.js.org/)，[Utterances](https://utteranc.es/)，[Giscus](https://giscus.app/) 和 [Cusdis](https://cusdis.com/)。
 
 ## 感谢
 
 |  内容   |  来源  |  许可  |
-| :---:  | :----:  | :----:  |
+| :----  | :-----  | :-----  |
 | 主题来源 | [@yihui/hugo-ivy](https://github.com/yihui/hugo-ivy)| [The Unlicense](https://github.com/yihui/hugo-ivy/blob/master/LICENSE.md) |
-| 夜间模式 | [@BetaHuhn/drkmd.js](https://github.com/BetaHuhn/drkmd.js) | [MIT License](https://github.com/BetaHuhn/drkmd.js/blob/master/LICENSE) |
+| 夜间模式 | [The simplest CSS variable dark mode theme](https://lukelowrey.com/css-variable-theme-switcher/) |  |
 | 夜间配色 | [@arcticicestudio/nord](https://github.com/arcticicestudio/nord) | [MIT License](https://github.com/arcticicestudio/nord/blob/develop/LICENSE.md) |
 | 排版参考 | [@sofish/typo.css](http://github.com/sofish/typo.css) | [MIT License](https://github.com/sofish/typo.css/blob/master/license.txt) |
 | 排版参考 | [@lepture/yue.css](https://github.com/lepture/yue.css) | MIT License |
@@ -88,4 +89,4 @@ description: "章节描述，如设置为空则会选取章节前五十字"
 
 [The Unlicense](https://github.com/injellyfish/hugo-theme-mneme/blob/master/LICENSE)
 
-欢迎你自由地使用或修改 Mneme！但请注意主题中使用到的其他仓库许可。
+欢迎你自由地使用或修改 Mneme！**但请注意主题中使用到的其他仓库许可。**

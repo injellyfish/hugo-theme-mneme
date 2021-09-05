@@ -1,6 +1,6 @@
 <div class="flip">
   <div style="text-align: left;">
-    «&nbsp;
+    {{ partial "svgs/angle-double-left.svg" }}
     {{ if .PrevInSection }}
       <a
         href="{{ .PrevInSection.Permalink | relURL }}"
@@ -16,7 +16,10 @@
     {{ if (or ( .PrevInSection) ( .NextInSection)) }}
       {{ $thisSection := .Site.GetPage "section" .Section }}
       {{ with $thisSection }}
-      -&nbsp;<a href="{{ .Permalink }}">目录</a>&nbsp;-
+      <a href="{{ .Permalink }}">
+        {{ partial "svgs/list.svg" }}
+        目录
+      </a>
       {{ end }}
       {{ else }}
     {{ end }}
@@ -32,7 +35,7 @@
     {{ else }}
       <span style="color: silver;">下一章</span>
     {{ end }}
-    &nbsp;»
+    {{ partial "svgs/angle-double-right.svg" }}
     </div>
 </div>
   

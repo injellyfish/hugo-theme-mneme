@@ -1,18 +1,44 @@
-/* Light Colors*/
-.theme-light {
+:root {
   --background: #f6f6f6;
   --text: #555;
   --sidebar: #f0f0f0;
   --hover: silver;
+  --shadow: rgb(85 85 85 / 25%);
+  --selection: #ddd;
 }
 
-/* Dark Colors */
-.theme-dark {
+html[data-theme='light'] {
+  --background: #f6f6f6;
+  --text: #555;
+  --sidebar: #f0f0f0;
+  --hover: silver;
+  --shadow: rgb(85 85 85 / 25%);
+  --selection: #ddd;
+}
+
+html[data-theme='dark'] {
   --background: #242933;
   --text: #eceff4;
   --sidebar: #2e3440;
   --hover: silver;
+  --shadow: rgb(0 0 0 / 25%);
+  --selection: #4C566A;
 }
+
+html[data-theme='dark'] .comments {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html[data-theme='dark'] .comments img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+[data-theme='light'] .theme-toggle-light,
+[data-theme='dark'] .theme-toggle-dark {
+    display: block !important;
+}
+
+.none{display:none!important}
 
 
 /* Micro Reset */
@@ -30,6 +56,8 @@ html {
 }
 
 body {
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   background-color: var(--sidebar);
@@ -159,26 +187,20 @@ hr {
 
 /* Layout */
 
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
-
 .masthead {
   width: 260px;
-  padding: 40px 10px 20px 60px;
+  padding: 40px 20px 20px 60px;
   float: left;
 }
 
 .main {
   width: 720px;
-  padding: 32px 40px 10px 40px;
   margin: 0 auto;
+  padding: 30px 32px;
   min-height: 100%;
   margin-bottom: -50px;
   background-color: var(--background);
+  box-shadow: 0 0 20px var(--shadow);
 }
 
 /* Masthead */
@@ -213,11 +235,7 @@ body {
 .masthead .menu ul ul {
   list-style: none;
   margin-left: 10px;
-  margin-right: 10px;
-}
-
-.masthead .menu li li::before {
-  content: "•\00a\000a0\00a0"
+  margin-right: 0;
 }
 
 #menu-check {
@@ -309,6 +327,10 @@ thead, tfoot, tr:nth-child(even) {
 
 @media screen and (max-width: 960px) {
 
+  html {
+    background-color: var(--background);
+  }
+
   body {
     width: auto;
     max-width: 700px;
@@ -331,6 +353,7 @@ thead, tfoot, tr:nth-child(even) {
     margin: 0 1rem;
     border-left: none;
     min-height: auto;
+    box-shadow: none;
   }
 
   .masthead h1 {
@@ -442,6 +465,7 @@ thead, tfoot, tr:nth-child(even) {
 /* Landscape phone screens and smaller */
 
 @media screen and (max-width: 720px) {
+
 }
 
 /* Portrait phone screens */
@@ -484,10 +508,6 @@ thead, tfoot, tr:nth-child(even) {
   margin-right: .25em;
 }
 
-.homeblock {
-  margin-bottom: 20px;
-}
-
 .block {
   margin: 0 0 20px;
 }
@@ -509,7 +529,7 @@ thead, tfoot, tr:nth-child(even) {
   width: 13px;
   vertical-align:middle;
   fill: grey;
-  margin-right: .25em;
+  margin-right: 0.05em;
 }
 
 .warn {
@@ -534,7 +554,7 @@ thead, tfoot, tr:nth-child(even) {
   width: 16px;
   vertical-align:middle;
   fill: var(--text);
-  margin-right: .25em;
+  margin-right: .05em;
 }
 
 .post>p {
@@ -550,4 +570,32 @@ thead, tfoot, tr:nth-child(even) {
 }
 footer {
   height: 50px;
+}
+
+::-webkit-scrollbar { 
+  width: .5rem; 
+  height: .5rem; 
+  background: rgba(221, 221, 221, 0.4); 
+} 
+
+::-webkit-scrollbar-track { 
+  border-radius: 0; 
+} 
+
+::-webkit-scrollbar-thumb { 
+  border-radius: 0; 
+  background-color: rgb(179, 179, 179); 
+  transition: all .2s; 
+  border-radius: 0rem 
+}
+
+::selection { 
+  background: var(--selection); 
+}
+
+.flip svg {
+  height: 16px;
+  width: 16px;
+  vertical-align:middle;
+  fill: var(--text);
 }

@@ -1,0 +1,24 @@
+<script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+<style>
+    :root {
+        --waline-theme-color: #868e96;
+        --waline-active-color: #555;
+        --waline-badge-color: #ced4da;
+    }
+    .v[data-class=v] .vcard .vmeta {
+        display: none;
+    }
+    .v[data-class=v] .vcard .vquote {
+        border-left: 1px dashed rgba(85, 85, 85, 0.5)
+    }
+</style>
+<div id="waline"></div>
+<script>
+    Waline({
+    el: '#waline',
+    serverURL: '{{ .Site.Params.comment.waline.serverURL }}',
+    emoji: {{ .Site.Params.comment.waline.emoji  }} ,
+    avatar: '{{ .Site.Params.comment.waline.avatar }}',
+    uploadImage: {{ .Site.Params.comment.waline.uploadImage }},
+    });
+</script>
