@@ -561,6 +561,10 @@ thead, tfoot, tr:nth-child(even) {
   text-indent: 32px;
 }
 
+.post>p>img {
+  margin-left: -32px;
+}
+
 .center {
   text-align:center;
 }

@@ -29,7 +29,8 @@ menu:  #首页菜单
 params:
   description: "用于中文小说写作的 Hugo 主题"  #网站描述
   footer: "Theme [Mneme](https://github.com/injellyfish/hugo-theme-mneme)丨Powered by [Hugo](https://gohugo.io/)."  #网站页脚
-  
+  summary: 50  #章节介绍字数
+
   comment:
     enabled: false #如开启评论，设为true；关闭设为false
     system:    #开启true后选择waline/cusdis/gitalk/utterancs/giscus
